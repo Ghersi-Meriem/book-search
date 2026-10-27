@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  background-image: url("img/background.jpg");
+  font-family: Arial, sans-serif;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* تملأ الشاشة بدون فراغات */
+  background-attachment: fixed; /* تبقى ثابتة وأنت تنزل في الصفحة */
+  background-color: #000;
+  min-height: 100vh;
+}
+body::before {
+  filter: blur(8px);
+  transform: scale(1.1);
+
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("your-image.jpg") center / cover no-repeat;
+  z-index: -1;
+}
+
+h1 {
+  font-family: "Pinyon Script", cursive; /* خط مزخرف مثل الرسائل القديمة */
+  font-size: 48px;
+  text-align: center;
+  margin-top: 20px;
+  color: #d66e19;
+}
+h2,
+h3 {
+  text-align: left;
+  display: block;
+  margin-top: 20px;
+  color: #7a0202;
+
+  max-width: 800px;
+  font-family: "Playfair Display", serif;
+}
+.card {
+  border-radius: 8px;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  max-width: 300px;
+}
+form input {
+  flex: 1 1 250px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+form button {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+}
+input[type="text"] {
+  border: 0px solid #e0ebc4;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  font-family: "IM Fell English", serif;
+  color: #fefae0;
+  font-size: 14px;
+  padding: 10px;
+  width: 350px;
+}
+input::placeholder {
+  color: #fefae0;
+  opacity: 1;
+}
+button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 4px;
+  color: #fefae0;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  padding: 10px 20px;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* كل الكروت في نفس المنتصف */
+  gap: 30px;
+}
+.book {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 20px 0;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}
+.book .bookDate {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.book img {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+}
+.bookDate {
+  width: 100%;
+  max-width: 500px;
+  flex: 1;
+  align-items: flex-start;
+}
+img {
+  width: clamp(150px, 20vw, 300px); /* أقل شيء 150، وأكثر شيء 300 */
+  height: auto;
+  border-radius: 8px;
+  margin-left: 20px;
+  max-width: 150px;
+  box-shadow: 0 4px 8px rgba(0.2, 0.1, 0, 0.1);
+}

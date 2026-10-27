@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Pinyon+Script&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Find any book in seconds</h1>
+
+      <form action="/" method="POST">
+        <input
+          type="text"
+          name="bookName"
+          placeholder="Enter book name"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="results">
+      <% books.forEach(function(book) { %>
+        <div class="book">
+          <div class="bookDate">
+            <h2>Book Title: <%= book.title %></h2>
+            <h2>Author: <%= book.author_name ? book.author_name.slice(0, 2).join(", ") : "Unknown" %></h2>
+            <h2>First Publish Year: <%= book.first_publish_year || "Unknown" %></h2>
+          </div>
+
+          <% if (book.cover_i) { %>
+            <img
+              src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-M.jpg"
+              alt="Book Cover"
+            />
+          <% } %>
+        </div> <!-- الإغلاق خارج الشرط، فيُغلق دائمًا -->
+      <% }); %>
+    </div>
+  </body>
+</html>
